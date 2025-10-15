@@ -1,4 +1,4 @@
-import { getSettings, getVideoProjects } from '@/lib/cosmic'
+import { VideoProject } from '@/types'
 import Header from '@/components/Header'
 import AnnouncementBanner from '@/components/AnnouncementBanner'
 import UploadSection from '@/components/UploadSection'
@@ -19,9 +19,9 @@ export default async function HomePage() {
     )
   }
   
-  const pendingCount = projects.filter(p => p.metadata?.processing_status?.key === 'pending').length
-  const processingCount = projects.filter(p => p.metadata?.processing_status?.key === 'processing').length
-  const completedCount = projects.filter(p => p.metadata?.processing_status?.key === 'completed').length
+  const pendingCount = projects.filter((p: VideoProject) => p.metadata?.processing_status?.key === 'pending').length
+  const processingCount = projects.filter((p: VideoProject) => p.metadata?.processing_status?.key === 'processing').length
+  const completedCount = projects.filter((p: VideoProject) => p.metadata?.processing_status?.key === 'completed').length
   
   return (
     <div className="min-h-screen">
