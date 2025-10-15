@@ -1,9 +1,9 @@
 import { VideoProject } from '@/types'
+import { getSettings, getVideoProjects } from '@/lib/cosmic'
 import Header from '@/components/Header'
 import AnnouncementBanner from '@/components/AnnouncementBanner'
 import UploadSection from '@/components/UploadSection'
 import ProjectsList from '@/components/ProjectsList'
-import StatsCards from '@/components/StatsCards'
 
 export default async function HomePage() {
   const [settings, projects] = await Promise.all([
