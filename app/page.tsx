@@ -2,6 +2,7 @@ import { VideoProject } from '@/types'
 import { getSettings, getVideoProjects } from '@/lib/cosmic'
 import Header from '@/components/Header'
 import AnnouncementBanner from '@/components/AnnouncementBanner'
+import StatsCards from '@/components/StatsCards'
 import UploadSection from '@/components/UploadSection'
 import ProjectsList from '@/components/ProjectsList'
 
