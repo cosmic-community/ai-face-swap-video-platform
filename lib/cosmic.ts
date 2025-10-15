@@ -1,4 +1,5 @@
 import { createBucketClient } from '@cosmicjs/sdk'
+import { VideoProject } from '@/types'
 
 export const cosmic = createBucketClient({
   bucketSlug: process.env.COSMIC_BUCKET_SLUG as string,
@@ -32,14 +33,15 @@ export async function getSettings() {
 }
 
 // Get all video projects
-export async function getVideoProjects() {
+// Get all video projects
+export async function getVideoProjects(): Promise<VideoProject[]> {
   try {
     const response = await cosmic.objects
       .find({ type: 'video-projects' })
       .props(['id', 'title', 'slug', 'metadata'])
       .depth(1)
     
-    return response.objects
+    return response.objects as VideoProject[]
   } catch (error) {
     if (hasStatus(error) && error.status === 404) {
       return []
